@@ -13,7 +13,7 @@ const elements = {
   isVal: document.getElementById('is-val'),
   stormProgress: document.getElementById('storm-progress'),
   
-  btnCreature: document.getElementById('btn-creature'),
+  btnStorm: document.getElementById('btn-storm'),
   btnNonCreature: document.getElementById('btn-noncreature'),
   btnIS: document.getElementById('btn-is'),
   btnReset: document.getElementById('btn-reset'),
@@ -112,7 +112,7 @@ function addToHistory(spellName, typeKey) {
 }
 
 // Event Listeners for Spell Casts
-elements.btnCreature.addEventListener('click', () => {
+elements.btnStorm.addEventListener('click', () => {
   state.storm += 1;
   addToHistory('Creature Spell', 'creature');
   updateUI(['storm']);
