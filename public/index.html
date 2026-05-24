@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A premium, dark-themed tracker for Magic: The Gathering Storm count, Non-Creature, and Instant/Sorcery spell tracking.">
+  <title>Aether Storm Tracker</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Lucide Icons for premium UI elements -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="background-decor">
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+  </div>
+
+  <main class="app-container">
+    <header class="app-header">
+      <div class="logo-area">
+        <i data-lucide="zap" class="logo-icon"></i>
+        <h1>Aether Storm</h1>
+      </div>
+      <p class="subtitle">Magic: The Gathering Spell & Storm Counter</p>
+    </header>
+
+    <!-- Display Cards Grid -->
+    <section class="counters-grid">
+      <!-- Storm Count Card (Prominent) -->
+      <div class="counter-card card-storm" id="card-storm">
+        <div class="card-glow"></div>
+        <div class="card-content">
+          <span class="card-label">Storm Count</span>
+          <div class="value-display" id="storm-val">0</div>
+          <div class="progress-bar-container">
+            <div class="progress-bar" id="storm-progress" style="width: 0%"></div>
+          </div>
+          <span class="card-desc">Total spells cast this turn</span>
+        </div>
+      </div>
+
+      <!-- Non-Creature Count Card -->
+      <div class="counter-card card-noncreature" id="card-noncreature">
+        <div class="card-glow"></div>
+        <div class="card-content">
+          <span class="card-label">Non-Creature</span>
+          <div class="value-display" id="noncreature-val">0</div>
+          <span class="card-desc">Artifacts, Enchantments, Planeswalkers, etc.</span>
+        </div>
+      </div>
+
+      <!-- Instant/Sorcery Count Card -->
+      <div class="counter-card card-is" id="card-is">
+        <div class="card-glow"></div>
+        <div class="card-content">
+          <span class="card-label">Instant / Sorcery</span>
+          <div class="value-display" id="is-val">0</div>
+          <span class="card-desc">Instants & Sorceries resolved</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Action Buttons Section -->
+    <section class="actions-section">
+      <div class="cast-buttons-grid">
+        <button id="btn-creature" class="action-btn btn-creature" aria-label="Cast Creature Spell">
+          <span class="btn-ripple"></span>
+          <i data-lucide="swords" class="btn-icon"></i>
+          <span class="btn-text">Cast Creature</span>
+          <span class="btn-modifier">+1 Storm</span>
+        </button>
+
+        <button id="btn-noncreature" class="action-btn btn-noncreature" aria-label="Cast Non-Creature Spell">
+          <span class="btn-ripple"></span>
+          <i data-lucide="gem" class="btn-icon"></i>
+          <span class="btn-text">Cast Non-Creature</span>
+          <span class="btn-modifier">+1 Storm, +1 Non-Creature</span>
+        </button>
+
+        <button id="btn-is" class="action-btn btn-is" aria-label="Cast Instant or Sorcery Spell">
+          <span class="btn-ripple"></span>
+          <i data-lucide="flame" class="btn-icon"></i>
+          <span class="btn-text">Cast Instant / Sorcery</span>
+          <span class="btn-modifier">+1 Storm, +1 Non-Creature, +1 I/S</span>
+        </button>
+      </div>
+
+      <div class="control-buttons-row">
+        <button id="btn-reset" class="control-btn btn-reset" aria-label="Reset all counters">
+          <i data-lucide="rotate-ccw" class="btn-icon-small"></i>
+          Reset Counters
+        </button>
+      </div>
+    </section>
+
+    <!-- Spell History Log (Mini bonus quality of life feature) -->
+    <section class="history-section">
+      <div class="history-header">
+        <h2>Spell History</h2>
+        <span id="history-count" class="badge">0 Spells</span>
+      </div>
+      <div class="history-list" id="history-list">
+        <div class="history-empty" id="history-empty">No spells cast this turn</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>Aether Storm Tracker &bull; Ready for Render Hosting</p>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+  </script>
+</body>
+</html>
